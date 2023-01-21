@@ -107,7 +107,9 @@ export function openModal(e, childClass) {
                   poster_path ? POSTER_URL + poster_path : ''
                 }" alt="Movie ${
           title ? title : 'Unknown title'
-        } poster" /></div>
+        } poster" />
+        <p id="trailerBtns-wrapper" class="film-modal__trailer"><button class="film-modal__trailer-btn" type="button" data-id="${filmId}">Watch trailer<span class="triangle-right"></span></button></p>
+        </div>
                 <div class="film-modal__wrapper">
                   <div class="film-modal__info-wrapper">
                     <h2 class="film-modal__title">${
@@ -137,12 +139,6 @@ export function openModal(e, childClass) {
                         <li class="film-modal__info-item">
                             <h3 class="film-modal__info-title">Genre</h3>
                             <p class="film-modal__info-text">${getGener}</p>
-                        </li>
-                        <li class="film-modal__info-item">
-                            <h3 class="film-modal__info-title">Trailer</h3>
-
-                            <p id="trailerBtns-wrapper" class="film-modal__info-text"><button class="film-modal__trailer-btn" type="button" data-id="${filmId}">Watch trailer<span class="triangle-right"></span></button></p>
-
                         </li>
                     </ul>
                     <h3 class="film-modal__title-about">About</h3>

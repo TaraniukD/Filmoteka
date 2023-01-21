@@ -1,6 +1,9 @@
 import { searchTrailerById } from './fetchApi';
 import * as basicLightbox from 'basiclightbox';
 import svgCloseIcon from '../images/svg/close-modal-film-icon.svg';
+
+
+
 export function showTrailerModal(trailerId, filmModal) {
   filmModal.close();
   const basicLightboxOptions = {
@@ -54,7 +57,7 @@ export function showTrailerModal(trailerId, filmModal) {
 export async function buildTrailerBtns(filmId, filmModal) {
   const trailers = await searchTrailerById(filmId);
 
-  // console.log(trailers);
+  console.log(trailers);
   const container = document.querySelector(`#trailerBtns-wrapper`);
 
   // console.log(container, filmId);
@@ -63,7 +66,7 @@ export async function buildTrailerBtns(filmId, filmModal) {
     container.innerHTML = 'No trailers are found';
     return;
   }
-  const trailerButtons = trailers.results.slice(0, 1).map((item, key) => {
+  const trailerButtons = trailers.results.slice(0, 3).map((item, key) => {
     const button = document.createElement('button');
     button.innerHTML = `Watch trailer<span class="triangle-right"></span>`;
     button.classList.add('film-modal__trailer-btn');
