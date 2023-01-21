@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://taraniukd.github.io/Filmoteka",
   "scripts": {
-    "start": "parcel src/index.html --port 2345",
+    "start": "parcel src/index.html",
     "build": "parcel build src/index.html --public-url /Filmoteka/"
   },
   "repository": {
