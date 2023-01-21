@@ -1,0 +1,46 @@
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal">
+    <button type="button" class="modal-close" data-modal-close>
+      <svg class="modal-close-icon">
+        <use href="/src/images/svg/symbol-defs.svg#icon-cross"></use>
+      </svg>
+    </button>
+    <p class="modal-title">Registration</p>
+    <p class="modal-title-logout is-hidden">You are logged in</p>
+    <form class="modal-form">
+      <div class="input-field">
+        <label for="user-email" class="input-title">Email</label>
+        <div class="input-wrap">
+          <input
+            type="email"
+            class="form-input"
+            name="user-email"
+            id="user-email"
+            placeholder=" "
+            required
+          />
+        </div>
+      </div>
+
+      <div class="input-field">
+        <label for="user-tel" class="input-title">Password</label>
+        <div class="input-wrap">
+          <input
+            type="password"
+            class="form-input"
+            name="user-pas"
+            id="user-pas"
+            placeholder=" "
+            required
+          />
+        </div>
+      </div>
+
+      <button type="submit" class="btn submit" id="btn-login">Login</button>
+      <button type="submit" class="btn submit" id="btn-signup">Sign up</button>
+    </form>
+    <button type="submit" class="btn submit is-hidden" id="btn-logout">
+      Log out
+    </button>
+  </div>
+</div>

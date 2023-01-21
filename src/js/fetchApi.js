@@ -1,0 +1,105 @@
+import axios from 'axios';
+import { API_KEY, BASE_URL } from '../js/config';
+
+// ------------Пошук по назві фільму-----------------
+async function searchMovieByName(text, page = 1) {
+  try {
+    const fetchAPI = await axios.get(
+      `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${text}&page=${page}`
+    );
+    return fetchAPI.data;
+  } catch (error) {
+    console.error('Something is wrong with the search' + error);
+  }
+}
+
+// --------------------Популярні фільми----------------------
+async function getPopularFilm(page = 1) {
+  try {
+    const fetchAPI = await axios.get(
+      `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${page}`
+    );
+    const data = await fetchAPI.data;
+
+    return fetchAPI.data;
+  } catch (error) {
+    console.error('Something is wrong with the search' + error);
+  }
+}
+
+// -----------------Пошук по id-----------------------
+async function searchMovieById(id) {
+  try {
+    const fetchAPI = await axios.get(
+      `${BASE_URL}/movie/${id}?api_key=${API_KEY}`
+    );
+    
+    if (fetchAPI.status !== 200) {
+      return
+    }
+
+    return fetchAPI.data;
+  } catch (error) {
+    console.error('Something is wrong with the search' + error);
+  }
+}
+
+// ------------------------ Пошук по назві жанру фільму------------------------
+async function searchGenresFilms(name) {
+  try {
+    const fetchAPI = await axios.get(
+      `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US&name=${name}`
+    );
+    return fetchAPI.data;
+  } catch (error) {
+    console.error('Something is wrong with the search' + error);
+  }
+}
+
+// ------------------------ запит на жанри фільму ------------------------------
+async function searchGenres() {
+  try {
+    const fetchAPI = await axios.get(
+      `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
+    );
+    return fetchAPI.data;
+  } catch (error) {
+    console.error('Something is wrong with the search' + error);
+  }
+}
+
+// --------------------трейлер фільму--------------------
+
+async function searchTrailerById(id) {
+  try {
+    const fetchAPI = await axios.get(
+      `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`
+    );
+    return fetchAPI.data;
+  } catch (error) {
+    console.error('Something is wrong with the search' + error);
+  }
+}
+
+// -------------------- Фільми, які скоро вийдуть-------------
+
+async function searchUpcomimgFilms() {
+  try {
+    const fetchAPI = await axios.get(
+      `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
+    );
+    return fetchAPI.data;
+  } catch (error) {
+    console.error('Something is wrong with the search' + error);
+  }
+}
+
+export {
+  searchMovieByName,
+  getPopularFilm,
+  searchMovieById,
+  searchGenresFilms,
+  searchTrailerById,
+  searchGenres,
+  searchUpcomimgFilms,
+};

@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+
+  font-family: 'Roboto', sans-serif;
+  color: $primary-text-color;
+  background-color: $primary-bg-color;
+  transition: background-color $animation-time $animation-cubic;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  // outline: 2px solid red;
+
+  @include mobile {
+    width: 480px;
+  }
+  @include tablet {
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 768px;
+  }
+  @include desktop {
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 1280px;
+  }
+}
